@@ -18,6 +18,7 @@ const adminRoute = require('./files/admin/admin.routes');
 const jobApplicationRoute = require('./files/applyJob/apply.job.routes');
 const jobRoute = require('./files/Job/job.routes');
 const offerRoute = require('./files/jobOffers/job.offer.routes');
+const aboutMeRoute = require('./files/users/aboutMe/about.me.routes');
 
 
 // Start express app
@@ -106,6 +107,7 @@ app.use('/api/v1/admin', adminRoute)
 app.use('/api/v1/jobs', jobRoute)
 app.use('/api/v1/jobApplication', jobApplicationRoute)
 app.use('/api/v1/offers', offerRoute)
+app.use('/api/v1/aboutUser', aboutMeRoute)
 
 app.all('*', (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));

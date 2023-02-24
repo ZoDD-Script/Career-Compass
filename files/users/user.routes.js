@@ -2,10 +2,14 @@ const { protect, restrictTo } = require('../../middleware/authenticate')
 const fileupload = require('../../storage/fileUpload')
 const upload = require('../../storage/multer')
 const Account = require('../auth/account.service')
+const aboutMeRoute = require('./aboutMe/about.me.routes')
 const { userSignUp, userVerifyAccount, userLogIn, userForgotPassword, userResetPassword, userUpdatePassword, userLogOut, userGetProfile, userUpdateProfile, userDeleteAccount } = require('./user.controller')
 const User = require('./user.model')
 
 const userRoute = require('express').Router()
+
+userRoute.use('/me/profile', aboutMeRoute)
+
 
 // userRoute.use(restrictTo('user'))
 
