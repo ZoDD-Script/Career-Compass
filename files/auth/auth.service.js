@@ -145,10 +145,7 @@ class Auth {
       // 1) Get user based on POSTed email
       const user = await Model.findOne({ email: req.body.email });
       if(!user) {
-        return res.status(404).json({
-          msg: 'There is no user with that email address'
-        });
-        // return next(new AppError('There is no user with that email address', 404));
+        return next(new AppError('There is no user with that email address', 404));
       };
     
       // 2) Generate the random reset token
